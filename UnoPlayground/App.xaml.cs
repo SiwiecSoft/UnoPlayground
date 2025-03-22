@@ -96,7 +96,7 @@ public partial class App : Application
     {
         views.Register(
             new ViewMap(ViewModel: typeof(ShellModel)),
-            new ViewMap<MainPage, MainModel>(),
+            new ViewMap<MainPage, MainModel>(), // spróbujemy tu z refleksji wszystkie klasy dziedziczące po page zmontowac z MainModel
             new DataViewMap<SecondPage, SecondModel, Entity>()
         );
 

@@ -19,11 +19,24 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Spacing="16">
-        <TextBox Text="{Binding Name, Mode=TwoWay}"
-            PlaceholderText="Enter your name:" />
+        <TextBox Text="{Binding Path=Data.One.Name.FullName, Mode=TwoWay}"
+            PlaceholderText="{Binding Data.List10.Count}" />
         <Button Content="Go to Second Page"
             AutomationProperties.AutomationId="SecondPageButton"
             Command="{Binding GoToSecond}" />
+        <ListView ItemsSource="{Binding Data.List10}">
+<ListView.ItemTemplate>
+    <DataTemplate>
+        <Grid>
+          <StackPanel Spacing="10" Orientation="Horizontal">
+            <TextBlock Text="{Binding Vehicle.Manufacturer}"/>
+            <TextBlock Text="{Binding Number.Int1000To9999}"/>
+            <TextBlock Text="zł" />
+          </StackPanel>
+        </Grid>
+    </DataTemplate>
+</ListView.ItemTemplate>
+</ListView>
       </StackPanel>
     </Grid>
   </ScrollViewer>

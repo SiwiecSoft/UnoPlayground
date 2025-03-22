@@ -15,14 +15,16 @@ public partial record MainModel
         Title += $" - {appInfo?.Value?.Environment}";
     }
 
+    public Data Data { get; } = new Data();
+
     public string? Title { get; }
 
-    public IState<string> Name => State<string>.Value(this, () => string.Empty);
+    //public IState<string> Name => State<string>.Value(this, () => string.Empty);
 
     public async Task GoToSecond()
     {
-        var name = await Name;
-        await _navigator.NavigateViewModelAsync<SecondModel>(this, data: new Entity(name!));
+        //var name = await Name;
+        await _navigator.NavigateViewModelAsync<SecondModel>(this, data: new Entity(""));
     }
 
 }

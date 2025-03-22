@@ -55,6 +55,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Bogus" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\UnoPlayground.DataContracts\UnoPlayground.DataContracts.csproj" />
   </ItemGroup>
 
