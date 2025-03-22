@@ -1,0 +1,10 @@
+{
+  "background_color": "#ffffff",
+  "description": "UnoPlayground",
+  "display": "standalone",
+  "name": "UnoPlayground",
+  "short_name": "UnoPlayground",
+  "start_url": "/index.html",
+  "theme_color": "#ffffff",
+  "scope": "/"
+}
