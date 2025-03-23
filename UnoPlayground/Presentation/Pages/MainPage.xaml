@@ -1,4 +1,4 @@
-﻿<Page x:Class="UnoPlayground.Presentation.MainPage"
+﻿<Page x:Class="UnoPlayground.Presentation.Pages.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:local="using:UnoPlayground.Presentation"

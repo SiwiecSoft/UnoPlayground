@@ -1,4 +1,4 @@
-﻿namespace UnoPlayground.Presentation;
+namespace UnoPlayground.Presentation.Pages;
 
 public sealed partial class SecondPage : Page
 {
