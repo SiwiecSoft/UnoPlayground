@@ -19,12 +19,15 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Spacing="16">
-        <TextBox Text="{Binding Path=Data.One.Name.FullName, Mode=TwoWay}"
-            PlaceholderText="{Binding Data.List10.Count}" />
-        <Button Content="Go to Second Page"
-            AutomationProperties.AutomationId="SecondPageButton"
-            Command="{Binding GoToSecond}" />
-        <ListView ItemsSource="{Binding Data.List10}">
+                <TextBox Text="{Binding Path=Bogus.One.Name.FullName, Mode=TwoWay}"
+            PlaceholderText="{Binding Bogus.List10.Count}" />
+        <StackPanel Orientation="Horizontal">
+          <Button uen:Navigation.Request="{Binding RoutePaths.SecondPage}" Content="{Binding RoutePaths.SecondPage}"
+              AutomationProperties.AutomationId="SecondPageButton"
+              Command="{Binding GoToSecond}" />
+          <Button uen:Navigation.Request="{Binding RoutePaths.TestPage}" uen:Navigation.Data="{Binding}" Content="{Binding RoutePaths.NewPage}" />
+        </StackPanel>
+                <ListView ItemsSource="{Binding Bogus.List10}">
 <ListView.ItemTemplate>
     <DataTemplate>
         <Grid>

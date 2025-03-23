@@ -4,13 +4,13 @@ using Image = UnoPlayground.Models.Bogus.Image;
 
 namespace UnoPlayground.Models;
 
-public class Data
+public class BogusData
 {
     public DataModel One { get; init; }
     public List<DataModel> List10 { get; init; }
     public List<DataModel> List100 { get; init; }
 
-    public Data()
+    public BogusData()
     {
         var faker = new Faker<DataModel>()
             .RuleFor(x => x.Address, f => new Address().Faker.Generate())

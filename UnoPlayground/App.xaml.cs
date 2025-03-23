@@ -1,4 +1,8 @@
+using Microsoft.UI.Xaml;
+using Uno.Extensions.Navigation;
 using Uno.Resizetizer;
+using UnoPlayground.Extensions;
+using UnoPlayground.Services;
 
 namespace UnoPlayground;
 
@@ -77,10 +81,10 @@ public partial class App : Application
                     .AddRefitClient<IApiClient>(context))
                 .ConfigureServices((context, services) =>
                 {
-                    // TODO: Register your services
-                    //services.AddSingleton<IMyService, MyService>();
+                    services.AddSingleton<DataRepository>();
                 })
-                .UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
+                //.UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
+                .UsePlaygroundNavigation()
             );
         MainWindow = builder.Window;
 
@@ -90,24 +94,5 @@ public partial class App : Application
         MainWindow.SetWindowIcon();
 
         Host = await builder.NavigateAsync<Shell>();
-    }
-
-    private static void RegisterRoutes(IViewRegistry views, IRouteRegistry routes)
-    {
-        views.Register(
-            new ViewMap(ViewModel: typeof(ShellModel)),
-            new ViewMap<MainPage, MainModel>(), // spróbujemy tu z refleksji wszystkie klasy dziedziczące po page zmontowac z MainModel
-            new DataViewMap<SecondPage, SecondModel, Entity>()
-        );
-
-        routes.Register(
-            new RouteMap("", View: views.FindByViewModel<ShellModel>(),
-                Nested:
-                [
-                    new ("Main", View: views.FindByViewModel<MainModel>(), IsDefault:true),
-                    new ("Second", View: views.FindByViewModel<SecondModel>()),
-                ]
-            )
-        );
     }
 }
