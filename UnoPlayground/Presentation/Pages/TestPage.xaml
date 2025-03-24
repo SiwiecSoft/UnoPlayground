@@ -9,29 +9,30 @@
       xmlns:um="using:Uno.Material"
       Background="{ThemeResource BackgroundBrush}">
 
-  <Grid utu:SafeArea.Insets="VisibleBounds">
-    <Grid.RowDefinitions>
-      <RowDefinition Height="Auto" />
-      <RowDefinition />
-    </Grid.RowDefinitions>
-    <utu:NavigationBar Content="Test Page">
-      <utu:NavigationBar.MainCommand>
-        <AppBarButton>
-          <AppBarButton.Icon>
-            <BitmapIcon UriSource="ms-appx:///Assets/Images/back.png" />
-          </AppBarButton.Icon>
-        </AppBarButton>
-      </utu:NavigationBar.MainCommand>
-    </utu:NavigationBar>
-    <StackPanel Grid.Row="1"
-          HorizontalAlignment="Center"
-          VerticalAlignment="Center">
-      <TextBlock Text="{Binding}"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Margin="8" />
-      <Button uen:Navigation.Request="{Binding RoutePaths.SecondPage}" Content="Second" />
-    </StackPanel>
+    <Grid utu:SafeArea.Insets="VisibleBounds">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <utu:NavigationBar Content="Test Page">
+            <utu:NavigationBar.MainCommand>
+                <AppBarButton>
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/Images/back.png" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </utu:NavigationBar.MainCommand>
+        </utu:NavigationBar>
+        <StackPanel
+            Spacing="5"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <TextBlock Text="Enter name:"/>
+            <TextBox Text="{Binding Path=Bogus.One.Name.FullName, Mode=TwoWay}" />
+            <Button HorizontalAlignment="Stretch" uen:Navigation.Request="{Binding RoutePaths.SecondPage}" Content="Go to second" />
+            <Button HorizontalAlignment="Stretch" uen:Navigation.Request="{Binding RoutePaths.ListTestPage}" Content="Go to list" />
+        </StackPanel>
 
-  </Grid>
+    </Grid>
 </Page>

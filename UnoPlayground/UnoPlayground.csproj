@@ -63,6 +63,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Presentation\Pages\ListTestPage.xaml.cs">
+      <DependentUpon>ListTestPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Presentation\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Presentation\Pages\TestPage.xaml.cs">
       <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
@@ -90,6 +96,13 @@
 
   <ItemGroup>
     <Page Update="Presentation\Pages\BlankPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Presentation\MainPage.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

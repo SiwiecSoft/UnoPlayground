@@ -1,4 +1,3 @@
-﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Reflection.Emit;
 
@@ -6,7 +5,7 @@ namespace UnoPlayground.Services;
 
 public class DynamicPageRepositoryGenerator
 {
-    public static object Generate()
+    public static object Generate(List<string> pageNames)
     {
         var assemblyName = new AssemblyName("DynamicPagesAssembly");
         var assemblyBuilder = AssemblyBuilder.DefineDynamicAssembly(assemblyName, AssemblyBuilderAccess.Run);
@@ -17,7 +16,7 @@ public class DynamicPageRepositoryGenerator
             TypeAttributes.Public | TypeAttributes.Class
         );
 
-        foreach (var propertyName in GetPageNames())
+        foreach (var propertyName in pageNames)
         {
             var propBuilder = typeBuilder.DefineProperty(
                 propertyName,
@@ -44,16 +43,5 @@ public class DynamicPageRepositoryGenerator
         var repoInstance = Activator.CreateInstance(repoType);
 
         return repoInstance;
-    }
-
-    [RequiresUnreferencedCode("")]
-    private static List<string> GetPageNames()
-    {
-        return Assembly
-            .GetExecutingAssembly()
-            .GetTypes()
-            .Where(t => t.IsClass && !t.IsAbstract && t.IsSubclassOf(typeof(Page)))
-            .Select(t => t.Name)
-            .ToList();
     }
 }

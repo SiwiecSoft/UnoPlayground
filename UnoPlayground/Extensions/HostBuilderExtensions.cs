@@ -97,6 +97,6 @@ public static class HostBuilderExtensions
             })
             .ToArray();
 
-        return [.. routeMaps, new("Main", View: views.FindByView<MainPage>(), IsDefault: true)];
+        return [.. routeMaps, new("MainPage", View: views.FindByView<MainPage>(), IsDefault: true)];
     }
 }
